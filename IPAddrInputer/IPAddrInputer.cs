@@ -1,0 +1,371 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsControlLibraryMadeByXJY
+{
+    public partial class IPAddrInputer : UserControl
+    {
+        /// <summary>用于保存所有字段对象的数组</summary>
+        private readonly TextBox[] fields;
+        public IPAddrInputer()
+        {
+            InitializeComponent();
+            fields = new TextBox[] { field1, field2, field3, field4 };
+        }
+
+        [Category("扩展属性"), Description("允许使用环回地址")]
+        public bool EnableLoopbackAddr { get; set; } = true;
+        [Category("扩展属性"), Description("获取 IP 地址")]
+        public IPAddress IPAddr
+        {
+            get
+            {
+                IPAddress.TryParse(IPAddrStr, out var address);
+                return address;
+            }
+        }
+        [Category("扩展属性"), Description("获取 IP 地址字符串")]
+        public string IPAddrStr
+        {
+            get
+            {
+                string ipAddr = string.Empty;
+                foreach (var field in fields)
+                {
+                    int.TryParse(field.Text, out var value);
+                    ipAddr += (value + label1.Text);
+                }
+                ipAddr = ipAddr.Substring(0, ipAddr.Length - 1);
+                return ipAddr;
+            }
+        }
+
+        #region 移动焦点相关方法
+        /// <summary>
+        /// 将焦点移动至上一个字段
+        /// </summary>
+        /// <param name="index">当前字段索引，允许范围 1~3</param>
+        private void FocusPrevious(int index)
+        {
+            if (index >= 1 && index <= 3)
+            {
+                index--;
+                fields[index].Focus();
+                fields[index].Select(fields[index].TextLength, 0);
+            }
+        }
+
+        /// <summary>
+        /// 将焦点移动至下一个字段
+        /// </summary>
+        /// <param name="index">当前字段索引，允许范围 0~2</param>
+        private void FocusNext(int index)
+        {
+            if (index >= 0 && index <= 2)
+            {
+                index++;
+                fields[index].Focus();
+                fields[index].Select();
+            }
+        }
+
+        /// <summary>
+        /// 将焦点移动至下一个字段并选定所有文本
+        /// </summary>
+        /// <param name="index">当前字段索引，允许范围 0~2</param>
+        private void FocusNextAndSelectAll(int index)
+        {
+            if (index >= 0 && index <= 2)
+            {
+                index++;
+                fields[index].Focus();
+                fields[index].SelectAll();
+            }
+        }
+        #endregion
+
+        #region 字段一事件处理函数
+        private void field1_KeyDown(object sender, KeyEventArgs e)
+        {
+            // 右箭头和下箭头可将焦点移动至下一个字段
+            if (e.KeyCode == Keys.Right || e.KeyCode == Keys.Down)
+            {
+                if (field1.SelectionStart == field1.TextLength)
+                {
+                    FocusNext(0);
+                }
+            }
+            // 同时两个句点键可将焦点移动至下一个字段
+            else if ((e.KeyCode == Keys.Decimal || e.KeyCode == Keys.OemPeriod) && field1.SelectionStart != 0)
+            {
+                FocusNextAndSelectAll(0);
+            }
+        }
+
+        private void field1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // 只允许数字和控制字符
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            // 已经输入了三个数字了还要继续输入的话则将焦点移动至下个字段
+            else if(char.IsDigit(e.KeyChar) && field1.SelectionStart == field1.MaxLength)
+            {
+                e.Handled = true;
+                FocusNextAndSelectAll(0);
+            }
+        }
+
+        private void field1_TextChanged(object sender, EventArgs e)
+        {
+            // 输入满三个数字移动焦点至下一个字段
+            if (field1.TextLength == field1.MaxLength && field1.SelectionStart == field1.MaxLength)
+            {
+                FocusNextAndSelectAll(0);
+            }
+        }
+
+        private void field1_Validating(object sender, CancelEventArgs e)
+        {
+            if(field1.Text != string.Empty)
+            {
+                // 验证字段的值是否在有效范围内
+                int.TryParse(field1.Text, out int value);
+                if (value < 1)
+                {
+                    field1.Text = "1";
+                    field1.Select(0, 0);
+                    e.Cancel = true;        //取消验证事件
+                    MessageBox.Show($"{value} 不是有效项。请指定一个介于 1 和 223 间的值。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (value > 223)
+                {
+                    field1.Text = "223";
+                    field1.Select(0, 0);
+                    e.Cancel = true;        //取消验证事件
+                    MessageBox.Show($"{value} 不是有效项。请指定一个介于 1 和 223 间的值。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (value == 127 && !EnableLoopbackAddr)
+                {
+                    field1.Text = "1";
+                    field1.Select(0, 0);
+                    e.Cancel = true;
+                    MessageBox.Show($"以 {value} 开头的 IP 地址无效，因为这些地址是为环回地址保留的。请指定介于 1 和 223 间的其他某个有效值。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+        #endregion
+
+        #region 字段二事件处理函数
+        private void field2_KeyDown(object sender, KeyEventArgs e)
+        {
+            // 左箭头和上箭头可将焦点移动至上一个字段
+            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Up)
+            {
+                if(field2.SelectionStart + field2.SelectionLength == 0)     //获取光标的位置，无论是否有选中的文本
+                {
+                    FocusPrevious(1);
+                }
+            }
+            // 右箭头和下箭头可将焦点移动至下一个字段
+            if (e.KeyCode == Keys.Right || e.KeyCode == Keys.Down)
+            {
+                if (field2.SelectionStart == field2.TextLength)
+                {
+                    FocusNext(1);
+                }
+            }
+            // 同时两个句点键可将焦点移动至下一个字段
+            else if ((e.KeyCode == Keys.Decimal || e.KeyCode == Keys.OemPeriod) && field2.SelectionStart != 0)
+            {
+                FocusNextAndSelectAll(1);
+            }
+        }
+
+        private void field2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // 只允许数字和控制字符
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            // 已经输入了三个数字了还要继续输入的话则将焦点移动至下个字段
+            else if (char.IsDigit(e.KeyChar) && field2.SelectionStart == field2.MaxLength)
+            {
+                e.Handled = true;
+                FocusNextAndSelectAll(1);
+            }
+            // 如果在字段的开头按下了退格键，则前往上一个字段继续执行删除
+            else if (e.KeyChar == '\b' && field2.SelectionStart == 0 && field2.SelectionLength == 0)
+            {
+                FocusPrevious(1);
+                // SendKeys.Send() 方法会将键盘消息发送到具有焦点的控件，所以首先要将焦点移动至上一个字段
+                SendKeys.Send("{BACKSPACE}");
+            }
+        }
+
+        private void field2_TextChanged(object sender, EventArgs e)
+        {
+            // 输入满三个数字移动焦点至下一个字段
+            if (field2.TextLength == field2.MaxLength && field2.SelectionStart == field2.MaxLength)
+            {
+                FocusNextAndSelectAll(1);
+            }
+        }
+
+        private void field2_Validating(object sender, CancelEventArgs e)
+        {
+            // 验证字段的值是否在有效范围内
+            int.TryParse(field2.Text, out int value);
+            if (value > 255)
+            {
+                field2.Text = "255";
+                field2.Select(0, 0);
+                e.Cancel = true;        //取消验证事件
+                MessageBox.Show($"{value} 不是有效项。请指定一个介于 0 和 255 间的值。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        #endregion
+
+        #region 字段三事件处理函数
+        private void field3_KeyDown(object sender, KeyEventArgs e)
+        {
+            // 左箭头和上箭头可将焦点移动至上一个字段
+            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Up)
+            {
+                if (field3.SelectionStart + field3.SelectionLength == 0)     //获取光标的位置，无论是否有选中的文本
+                {
+                    FocusPrevious(2);
+                }
+            }
+            // 右箭头和下箭头可将焦点移动至下一个字段
+            if (e.KeyCode == Keys.Right || e.KeyCode == Keys.Down)
+            {
+                if (field3.SelectionStart == field3.TextLength)
+                {
+                    FocusNext(2);
+                }
+            }
+            // 同时两个句点键可将焦点移动至下一个字段
+            else if ((e.KeyCode == Keys.Decimal || e.KeyCode == Keys.OemPeriod) && field3.SelectionStart != 0)
+            {
+                FocusNextAndSelectAll(2);
+            }
+        }
+
+        private void field3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // 只允许数字和控制字符
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            // 已经输入了三个数字了还要继续输入的话则将焦点移动至下个字段
+            else if (char.IsDigit(e.KeyChar) && field3.SelectionStart == field3.MaxLength)
+            {
+                e.Handled = true;
+                FocusNextAndSelectAll(2);
+            }
+            // 如果在字段的开头按下了退格键，则前往上一个字段继续执行删除
+            else if (e.KeyChar == '\b' && field3.SelectionStart == 0 && field3.SelectionLength == 0)
+            {
+                FocusPrevious(2);
+                // SendKeys.Send() 方法会将键盘消息发送到具有焦点的控件，所以首先要将焦点移动至上一个字段
+                SendKeys.Send("{BACKSPACE}");
+            }
+        }
+
+        private void field3_TextChanged(object sender, EventArgs e)
+        {
+            // 输入满三个数字移动焦点至下一个字段
+            if (field3.TextLength == field3.MaxLength && field3.SelectionStart == field3.MaxLength)
+            {
+                FocusNextAndSelectAll(2);
+            }
+        }
+
+        private void field3_Validating(object sender, CancelEventArgs e)
+        {
+            // 验证字段的值是否在有效范围内
+            int.TryParse(field3.Text, out int value);
+            if (value > 255)
+            {
+                field3.Text = "255";
+                field3.Select(0, 0);
+                e.Cancel = true;        //取消验证事件
+                MessageBox.Show($"{value} 不是有效项。请指定一个介于 0 和 255 间的值。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        #endregion
+
+        #region 字段四事件处理函数
+        private void field4_KeyDown(object sender, KeyEventArgs e)
+        {
+            // 左箭头和上箭头可将焦点移动至上一个字段
+            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Up)
+            {
+                if (field4.SelectionStart + field4.SelectionLength == 0)     //获取光标的位置，无论是否有选中的文本
+                {
+                    FocusPrevious(3);
+                }
+            }
+        }
+
+        private void field4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // 只允许数字和控制字符
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            // 已经输入了三个数字了还要继续输入的话则移动焦点(以触发验证事件)
+            else if (char.IsDigit(e.KeyChar) && field4.SelectionStart == field4.MaxLength)
+            {
+                e.Handled = true;
+                label3.Focus();
+                field4.Focus();
+            }
+            // 如果在字段的开头按下了退格键，则前往上一个字段继续执行删除
+            else if (e.KeyChar == '\b' && field4.SelectionStart == 0 && field4.SelectionLength == 0)
+            {
+                FocusPrevious(3);
+                // SendKeys.Send() 方法会将键盘消息发送到具有焦点的控件，所以首先要将焦点移动至上一个字段
+                SendKeys.Send("{BACKSPACE}");
+            }
+        }
+
+        private void field4_TextChanged(object sender, EventArgs e)
+        {
+            // 输入满三个数字移动焦点(以触发验证事件)
+            if (field4.TextLength == field4.MaxLength && field4.SelectionStart == field4.MaxLength)
+            {
+                label3.Focus();
+                field4.Focus();
+            }
+        }
+
+        private void field4_Validating(object sender, CancelEventArgs e)
+        {
+            // 验证字段的值是否在有效范围内
+            int.TryParse(field4.Text, out int value);
+            if (value > 255)
+            {
+                field4.Text = "255";
+                field4.Select(0, 0);
+                e.Cancel = true;        //取消验证事件
+                MessageBox.Show($"{value} 不是有效项。请指定一个介于 0 和 255 间的值。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        #endregion
+    }
+}
