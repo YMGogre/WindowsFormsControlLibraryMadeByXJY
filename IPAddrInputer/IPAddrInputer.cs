@@ -22,8 +22,14 @@ namespace WindowsFormsControlLibraryMadeByXJY
             fields = new TextBox[] { field1, field2, field3, field4 };
         }
 
+        /// <summary>
+        /// 获取或设置以允许使用环回地址
+        /// </summary>
         [Category("扩展属性"), Description("允许使用环回地址")]
         public bool EnableLoopbackAddr { get; set; } = true;
+        /// <summary>
+        /// 获取 IP 地址
+        /// </summary>
         [Category("扩展属性"), Description("获取 IP 地址")]
         public IPAddress IPAddr
         {
@@ -33,6 +39,9 @@ namespace WindowsFormsControlLibraryMadeByXJY
                 return address;
             }
         }
+        /// <summary>
+        /// 获取 IP 地址字符串
+        /// </summary>
         [Category("扩展属性"), Description("获取 IP 地址字符串")]
         public string IPAddrStr
         {
@@ -365,6 +374,67 @@ namespace WindowsFormsControlLibraryMadeByXJY
                 e.Cancel = true;        //取消验证事件
                 MessageBox.Show($"{value} 不是有效项。请指定一个介于 0 和 255 间的值。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+        #endregion
+
+        #region 复制与粘贴相关
+        /// <summary>
+        /// 重写 ProcessCmdKey() 方法以处理 Ctrl+C 和 Ctrl+V 命令。实现在任意字段内可直接复制或粘贴 IP 地址字符串
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="keyData"></param>
+        /// <returns></returns>
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            // 检查是否按下了 Ctrl+C
+            if (keyData == (Keys.Control | Keys.C))
+            {
+                // 获取当前拥有焦点的控件
+                Control focusedControl = this.ActiveControl;
+
+                // 检查是否是 TextBox 拥有焦点
+                if (focusedControl is TextBox)
+                {
+                    TextBox focusedTextBox = focusedControl as TextBox;
+
+                    // 检查是否有文本被选中
+                    if (string.IsNullOrEmpty(focusedTextBox.SelectedText))
+                    {
+                        // 如果没有文本被选中，则将 IP 地址字符串复制到剪贴板
+                        Clipboard.SetText(IPAddrStr);
+                        // 返回 true 表示已经处理了这个命令
+                        return true;
+                    }
+                }
+            }
+            // 检查是否按下了 Ctrl+V
+            else if(keyData == (Keys.Control | Keys.V))
+            {
+                // 获取剪贴板中的内容
+                var str = Clipboard.GetText();
+
+                // 检查剪贴板的内容是否为无符号整数
+                if (uint.TryParse(str, out uint value))
+                {
+                    // 返回 false 表示未处理这个命令（将由字段自行处理命令）
+                    return false;
+                }
+                // 检查剪贴板的内容是否为有效 IP 地址
+                if (IPAddress.TryParse(str, out IPAddress ip))
+                {
+                    var parts = ip.ToString().Split('.');
+                    for (int i = 0; i < parts.Length; i++)
+                    {
+                        fields[i].Text = parts[i];
+                    }
+                }
+
+                // 返回 true 表示已经处理了这个命令
+                return true;
+            }
+
+            // 如果没有处理命令，调用基类的 ProcessCmdKey 方法
+            return base.ProcessCmdKey(ref msg, keyData);
         }
         #endregion
     }

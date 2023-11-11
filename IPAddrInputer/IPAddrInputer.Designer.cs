@@ -153,6 +153,7 @@
             this.field4.Name = "field4";
             this.field4.Size = new System.Drawing.Size(31, 16);
             this.field4.TabIndex = 3;
+            this.field4.TabStop = false;
             this.field4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.field4.TextChanged += new System.EventHandler(this.field4_TextChanged);
             this.field4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.field4_KeyDown);
@@ -246,6 +247,7 @@
             this.field3.Name = "field3";
             this.field3.Size = new System.Drawing.Size(31, 16);
             this.field3.TabIndex = 2;
+            this.field3.TabStop = false;
             this.field3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.field3.TextChanged += new System.EventHandler(this.field3_TextChanged);
             this.field3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.field3_KeyDown);
@@ -279,6 +281,7 @@
             this.field2.Name = "field2";
             this.field2.Size = new System.Drawing.Size(31, 16);
             this.field2.TabIndex = 1;
+            this.field2.TabStop = false;
             this.field2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.field2.TextChanged += new System.EventHandler(this.field2_TextChanged);
             this.field2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.field2_KeyDown);
