@@ -164,6 +164,11 @@ namespace WindowsFormsControlLibraryMadeByXJY
 
         private void field1_TextChanged(object sender, EventArgs e)
         {
+            // 任何文本更改都检查字段的文本是否能解析为整数，以避免出现不期望的字符
+            if(!int.TryParse(field1.Text, out int value) && field1.Text != string.Empty)
+            {
+                field1.Text = string.Empty;
+            }
             // 输入满三个数字移动焦点至下一个字段
             if (field1.TextLength == field1.MaxLength && field1.SelectionStart == field1.MaxLength)
             {
@@ -253,6 +258,11 @@ namespace WindowsFormsControlLibraryMadeByXJY
 
         private void field2_TextChanged(object sender, EventArgs e)
         {
+            // 任何文本更改都检查字段的文本是否能解析为整数，以避免出现不期望的字符
+            if (!int.TryParse(field2.Text, out int value) && field2.Text != string.Empty)
+            {
+                field2.Text = string.Empty;
+            }
             // 输入满三个数字移动焦点至下一个字段
             if (field2.TextLength == field2.MaxLength && field2.SelectionStart == field2.MaxLength)
             {
@@ -325,6 +335,11 @@ namespace WindowsFormsControlLibraryMadeByXJY
 
         private void field3_TextChanged(object sender, EventArgs e)
         {
+            // 任何文本更改都检查字段的文本是否能解析为整数，以避免出现不期望的字符
+            if (!int.TryParse(field3.Text, out int value) && field3.Text != string.Empty)
+            {
+                field3.Text = string.Empty;
+            }
             // 输入满三个数字移动焦点至下一个字段
             if (field3.TextLength == field3.MaxLength && field3.SelectionStart == field3.MaxLength)
             {
@@ -385,6 +400,11 @@ namespace WindowsFormsControlLibraryMadeByXJY
 
         private void field4_TextChanged(object sender, EventArgs e)
         {
+            // 任何文本更改都检查字段的文本是否能解析为整数，以避免出现不期望的字符
+            if (!int.TryParse(field4.Text, out int value) && field4.Text != string.Empty)
+            {
+                field4.Text = string.Empty;
+            }
             // 输入满三个数字移动焦点(以触发验证事件)
             if (field4.TextLength == field4.MaxLength && field4.SelectionStart == field4.MaxLength)
             {
@@ -410,8 +430,11 @@ namespace WindowsFormsControlLibraryMadeByXJY
 
         #region 复制与粘贴相关
         /// <summary>
-        /// 重写 ProcessCmdKey() 方法以处理 Ctrl+C 和 Ctrl+V 命令。实现在任意字段内可直接复制或粘贴 IP 地址字符串
+        /// 重写 <see href="https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.forms.control.processcmdkey?view=netframework-4.8">ProcessCmdKey()</see> 方法以处理 Ctrl+C 和 Ctrl+V 命令。实现在任意字段内可直接复制或粘贴 IP 地址字符串
         /// </summary>
+        /// <remarks>
+        /// 请注意，ProcessCmdKey() 主要用于处理键盘消息。如果您想处理所有的 Windows 消息（包括键盘、鼠标和其他设备的消息），请重写 <see href="https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.forms.control.wndproc?view=netframework-4.8">WndProc()</see> 方法。
+        /// </remarks>
         /// <param name="msg"></param>
         /// <param name="keyData"></param>
         /// <returns></returns>
