@@ -40,7 +40,7 @@ namespace WindowsFormsControlLibraryMadeByXJY
             }
         }
         /// <summary>
-        /// 获取 IP 地址字符串
+        /// 获取 IP 地址字符串（若要设置，请调用 <see cref="SetIPAddrStr(string)"/>）
         /// </summary>
         [Category("扩展属性"), Description("获取 IP 地址字符串")]
         public string IPAddrStr
@@ -56,6 +56,28 @@ namespace WindowsFormsControlLibraryMadeByXJY
                 ipAddr = ipAddr.Substring(0, ipAddr.Length - 1);
                 return ipAddr;
             }
+        }
+
+        /// <summary>
+        /// 设置 IP 地址字符串
+        /// </summary>
+        /// <remarks>
+        /// 不使用 <see cref="IPAddrStr"/> 的 <c>set</c> 访问器主要是出于默认情况下四个字段应为空文本的考虑
+        /// </remarks>
+        /// <param name="ipString">要设置的字符串</param>
+        public void SetIPAddrStr(string ipString)
+        {
+            // 检查是否为有效 IPV4 地址
+            if (IPAddress.TryParse(ipString, out IPAddress address) && address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+            {
+                var parts = address.ToString().Split('.');
+                for (int i = 0; i < parts.Length; i++)
+                {
+                    fields[i].Text = parts[i];
+                }
+            }
+            // 对所有字段的数据进行验证
+            this.ValidateChildren();
         }
 
         #region 移动焦点相关方法
@@ -419,15 +441,8 @@ namespace WindowsFormsControlLibraryMadeByXJY
                     // 返回 false 表示未处理这个命令（将由字段自行处理命令）
                     return false;
                 }
-                // 检查剪贴板的内容是否为有效 IP 地址
-                if (IPAddress.TryParse(str, out IPAddress ip))
-                {
-                    var parts = ip.ToString().Split('.');
-                    for (int i = 0; i < parts.Length; i++)
-                    {
-                        fields[i].Text = parts[i];
-                    }
-                }
+                // 检查剪贴板的内容是否为有效 IPV4 地址，如果是则设置 IP 地址字符串
+                SetIPAddrStr(str);
 
                 // 返回 true 表示已经处理了这个命令
                 return true;
