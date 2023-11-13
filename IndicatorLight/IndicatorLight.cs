@@ -67,13 +67,42 @@ namespace WindowsFormsControlLibraryMadeByXJY
             return Color.FromArgb(a, r, g, b);
         }
 
+        /// <summary>
+        /// 基于一个 32 位的 RGB 值创建 <see cref="Color"/> 结构（不包含 α 通道值）。
+        /// </summary>
+        /// <param name="rgb">用于指定 32 位 RGB 值的值</param>
+        /// <returns>此方法创建的 <see cref="Color"/> 结构。</returns>
         public static Color FromRgb(int rgb)
         {
-            int r = (rgb & 0xFF0000) >> 16;
-            int g = (rgb & 0x00FF00) >> 8;
-            int b = rgb & 0x0000FF;
+            int r = (rgb & 0x00FF0000) >> 16;
+            int g = (rgb & 0x0000FF00) >> 8;
+            int b = rgb & 0x000000FF;
             return Color.FromArgb(r, g, b);
         }
+
+        /// <summary>
+        /// 当 <see cref="CurrColor"/> 属性的值更改时发生。
+        /// </summary>
+        [Category("属性已更改"), Description("在控件的 CurrColor 属性值更改时引发的事件。"), Browsable(true)]
+        public event EventHandler CurrColorChanged;
+
+        /// <summary>
+        /// 当 <see cref="CurrState"/> 属性的值更改时发生。
+        /// </summary>
+        [Category("属性已更改"), Description("在控件的 CurrState 属性值更改时引发的事件。"), Browsable(true)]
+        public event EventHandler CurrStateChanged;
+
+        /// <summary>
+        /// 当 <see cref="IndicatorText"/> 属性的值更改时发生。
+        /// </summary>
+        [Category("属性已更改"), Description("在控件的 IndicatorText 属性值更改时引发的事件。"), Browsable(true)]
+        public event EventHandler IndicatorTextChanged;
+
+        /// <summary>
+        /// 当 <see cref="Clickable"/> 属性的值更改时发生。
+        /// </summary>
+        [Category("属性已更改"), Description("在控件的 Clickable 属性值更改时引发的事件。"), Browsable(true)]
+        public event EventHandler ClickableChanged;
 
         /// <summary>
         /// 获取或设置指示灯显示的颜色
@@ -84,8 +113,12 @@ namespace WindowsFormsControlLibraryMadeByXJY
             get => currColor;
             set
             {
-                currColor = value;
-                this.Invalidate();
+                if (currColor != value)
+                {
+                    currColor = value;
+                    CurrColorChanged?.Invoke(this, EventArgs.Empty);
+                    this.Invalidate();
+                }
             }
         }
 
@@ -96,7 +129,14 @@ namespace WindowsFormsControlLibraryMadeByXJY
         public IndicatorState CurrState
         {
             get => (IndicatorState)currColor;
-            set => CurrColor = (IndicatorColors)value;
+            set
+            {
+                if (CurrState != value)
+                {
+                    CurrColor = (IndicatorColors)value;
+                    CurrStateChanged?.Invoke(this, EventArgs.Empty);
+                }
+            }
         }
 
         /// <summary>
@@ -108,8 +148,12 @@ namespace WindowsFormsControlLibraryMadeByXJY
             get => indicatorText;
             set
             {
-                indicatorText = value;
-                this.Invalidate();
+                if (indicatorText != value)
+                {
+                    indicatorText = value;
+                    IndicatorTextChanged?.Invoke(this, EventArgs.Empty);
+                    this.Invalidate();
+                }
             }
         }
 
@@ -122,8 +166,12 @@ namespace WindowsFormsControlLibraryMadeByXJY
             get => clickable;
             set
             {
-                clickable = value;
-                this.Cursor = this.Clickable ? Cursors.Hand : Cursors.Default;
+                if (clickable != value)
+                {
+                    clickable = value;
+                    this.Cursor = this.Clickable ? Cursors.Hand : Cursors.Default;
+                    ClickableChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
