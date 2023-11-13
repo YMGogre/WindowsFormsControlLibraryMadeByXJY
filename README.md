@@ -17,3 +17,9 @@
 |[选择器控件](./Selector/README.md)|![Selector](./images/Selector.PNG)|
 |[圆角按钮控件](./RoundButton/README.md)|![RoundButton](./images/RoundButton.PNG)|
 |[指示灯控件](./IndicatorLight/README.md)|![IndicatorLight](./images/IndicatorLight.gif)|
+
+## 3、使用方法
+
+如果您想要了解如何创建 .NET Framework 下 WinForms 自定义控件库或者想了解如何在其他项目中引用本仓库，请参考：
+> [在Visual Studio中创建自定义Winform控件库并在其他解决方案中引用](https://blog.csdn.net/YMGogre/article/details/126508042 "【入门级图文教程】在Visual Studio中创建自定义Winform控件库并在其他解决方案中引用 - CSDN 博客")
+> <div align="center"><img src="./images/csdn.png" alt="csdn" width="128"></div>
