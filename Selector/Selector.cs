@@ -43,6 +43,7 @@ namespace WindowsFormsControlLibraryMadeByXJY
         public void DeselectThis()
         {
             s_selectedItems.Remove(this);
+            Number = default;
             IsSelected = false;
             UpdateItemNumbers();
             Invalidate();
