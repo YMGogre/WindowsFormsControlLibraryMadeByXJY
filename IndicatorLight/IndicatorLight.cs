@@ -207,6 +207,9 @@ namespace WindowsFormsControlLibraryMadeByXJY
             g.DrawEllipse(new Pen(new SolidBrush(Color.FromArgb(0xF4, 0xF4, 0xF5)),2), new Rectangle(4, 4, this.Width - 8, this.Height - 8));
             g.FillEllipse(new SolidBrush(FromRgb((int)CurrColor)), new Rectangle(4, 4, this.Width - 8, this.Height - 8));           
             TextRenderer.DrawText(g, IndicatorText, this.Font, new Rectangle(4, 4, this.Width - 8, this.Height - 8), SystemColors.InfoText);
+            GraphicsPath path = new GraphicsPath();
+            path.AddEllipse(new Rectangle(2, 2, this.Width - 4, this.Height - 4));
+            this.Region = new Region(path);
         }
 
 

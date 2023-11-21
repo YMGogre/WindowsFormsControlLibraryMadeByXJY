@@ -93,6 +93,9 @@ namespace WindowsFormsControlLibraryMadeByXJY
                 g.DrawEllipse(new Pen(new SolidBrush(Color.White), 2), new Rectangle(4, 4, this.Width - 8, this.Height - 8));
                 g.FillEllipse(new SolidBrush(Color.FromArgb(128, 178, 178, 178)), new Rectangle(4, 4, this.Width - 8, this.Height - 8));
             }
+            GraphicsPath path = new GraphicsPath();
+            path.AddEllipse(new Rectangle(2, 2, this.Width - 4, this.Height - 4));
+            this.Region = new Region(path);
         }
 
         /// <summary>
