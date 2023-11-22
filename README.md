@@ -15,7 +15,7 @@
 |[开关控件](./Switch/README.md)|![Switch](./images/Switch.png)|
 |[水印文本框控件](./WatermarkTextBox/README.md)|![WatermarkTextBox](./images/WatermarkTextBox.PNG)|
 |[选择器控件](./Selector/README.md)|![Selector](./images/Selector.PNG)|
-|[圆角按钮控件](./RoundButton/README.md)|![RoundButton](./images/RoundButton.PNG)|
+|[圆角按钮控件](./RoundButton/README.md)|![RoundButton](./images/RoundButton.gif)|
 |[指示灯控件](./IndicatorLight/README.md)|![IndicatorLight](./images/IndicatorLight.gif)|
 
 ## 3、使用方法

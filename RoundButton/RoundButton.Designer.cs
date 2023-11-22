@@ -28,7 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // RoundButton
+            // 
+            this.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.Size = new System.Drawing.Size(130, 45);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

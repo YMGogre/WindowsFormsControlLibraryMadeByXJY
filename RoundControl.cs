@@ -31,12 +31,45 @@ namespace WindowsFormsControlLibraryMadeByXJY
         }
 
         /// <summary>
-        /// 获取由控件的矩形轮廓转换而来的圆角矩形轮廓路径
+        /// 获取由控件的矩形转换而来的圆角矩形路径
+        /// </summary>
+        /// <param name="rect">控件矩形</param>
+        /// <param name="radius">圆角半径</param>
+        /// <param name="margin">定义圆角矩形到 <paramref name="rect"/> 边界的空白像素值，该值可以用于绘制圆角矩形的边框</param>
+        /// <returns></returns>
+        public static GraphicsPath GetRoundedRectPath(Rectangle rect, int radius, int margin = 1)
+        {
+            int SideLength = radius;    //定义圆弧方形容器边长为圆的半径
+            Rectangle arcRect = new Rectangle(rect.Location, new Size(SideLength, SideLength));
+            GraphicsPath path = new GraphicsPath();
+
+            arcRect.X += margin;
+            arcRect.Y += margin;
+            // 左上角
+            path.AddArc(arcRect, 180, 90);
+
+            // 右上角
+            arcRect.X = rect.Right - SideLength - margin;
+            path.AddArc(arcRect, 270, 90);
+
+            // 右下角
+            arcRect.Y = rect.Bottom - SideLength - margin;
+            path.AddArc(arcRect, 0, 90);
+
+            // 左下角
+            arcRect.X = rect.Left + margin;
+            path.AddArc(arcRect, 90, 90);
+            path.CloseFigure();//闭合曲线
+            return path;
+        }
+
+        /// <summary>
+        /// 获取由控件的矩形转换而来的圆角矩形轮廓路径
         /// </summary>
         /// <param name="rect">控件矩形</param>
         /// <param name="radius">圆角半径</param>
         /// <returns></returns>
-        public static GraphicsPath GetRoundedRectPath(Rectangle rect, int radius)
+        public static GraphicsPath GetRoundedRectOutline(Rectangle rect, int radius)
         {
             int SideLength = radius;    //定义圆弧方形容器边长为圆的半径
             Rectangle arcRect = new Rectangle(rect.Location, new Size(SideLength, SideLength));

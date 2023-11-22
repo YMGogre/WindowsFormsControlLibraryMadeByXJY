@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorProcessing.cs" />
     <Compile Include="IPAddrInputer\IPAddrInputer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -98,6 +99,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoundButton\RoundButton.resx">
+      <DependentUpon>RoundButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Selector\Selector.resx">
       <DependentUpon>Selector.cs</DependentUpon>

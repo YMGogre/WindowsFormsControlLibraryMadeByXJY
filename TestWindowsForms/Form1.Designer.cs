@@ -125,6 +125,7 @@
             // 
             // flowLayoutPanel3
             // 
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel3.Controls.Add(this.panel1);
             this.flowLayoutPanel3.Controls.Add(this.roundButton1);
             this.flowLayoutPanel3.Controls.Add(this.switch1);
@@ -254,16 +255,24 @@
             // 
             // roundButton1
             // 
-            this.roundButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            this.roundButton1.BackColor = System.Drawing.Color.Transparent;
+            this.roundButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(177)))), ((int)(((byte)(255)))));
             this.roundButton1.FlatAppearance.BorderSize = 0;
             this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundButton1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.roundButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
             this.roundButton1.Location = new System.Drawing.Point(183, 10);
             this.roundButton1.Margin = new System.Windows.Forms.Padding(10);
             this.roundButton1.Name = "roundButton1";
-            this.roundButton1.RgnRadius = 20;
-            this.roundButton1.Size = new System.Drawing.Size(110, 47);
+            this.roundButton1.RgnRadius = 15;
+            this.roundButton1.RoundBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.roundButton1.RoundBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.roundButton1.RoundBorderSize = 1;
+            this.roundButton1.RoundButtonPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(142)))), ((int)(((byte)(230)))));
+            this.roundButton1.Size = new System.Drawing.Size(110, 45);
             this.roundButton1.TabIndex = 1;
-            this.roundButton1.Text = "roundButton1";
+            this.roundButton1.Text = "圆角按钮";
             this.roundButton1.UseVisualStyleBackColor = false;
             // 
             // switch1
