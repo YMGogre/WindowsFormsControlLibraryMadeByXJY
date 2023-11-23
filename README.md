@@ -32,6 +32,16 @@
     }
 </style>
 
+<style>
+    #circle {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        position: relative;
+        margin: 0 auto;
+    }
+</style>
+
 |控件名称|效果预览|
 |:---|:---:|
 |[IP 地址输入框控件](./IPAddrInputer/README.md)|![IPAddrInputer](./images/IPAddrInputer.PNG)|
@@ -39,33 +49,16 @@
 |[水印文本框控件](./WatermarkTextBox/README.md)|![WatermarkTextBox](./images/WatermarkTextBox.PNG)|
 |[选择器控件](./Selector/README.md)|![Selector](./images/Selector.PNG)|
 |[圆角按钮控件](./RoundButton/README.md)|<button class="button">圆角按钮</button>|
-|[指示灯控件](./IndicatorLight/README.md)||
-
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        #circle {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            position: relative;
-            margin: 0 auto;
-        }
-    </style>
-</head>
-<body>
-    <div id="circle"></div>
-    <script>
-        var colors = ["#C8C9CC", "#409EFF", "#67C23A", "#E6A23C", "#F56C6C"];
-        var i = 0;
-        setInterval(function() {
-            document.getElementById('circle').style.backgroundColor = colors[i];
-            i = (i + 1) % colors.length;
-        }, 1000);
-    </script>
-</body>
-</html>
+|[指示灯控件](./IndicatorLight/README.md)|<div id="circle"></div>|
+ 
+<script>
+    var colors = ["#C8C9CC", "#409EFF", "#67C23A", "#E6A23C", "#F56C6C"];
+    var i = 0;
+    setInterval(function() {
+        document.getElementById('circle').style.backgroundColor = colors[i];
+        i = (i + 1) % colors.length;
+    }, 1000);
+</script>
 
 ## 3、使用方法
 
