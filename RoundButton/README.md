@@ -25,8 +25,6 @@
 
 <div align="center"><button class="button">圆角按钮</button></div>
 
-<div align="center"><img src="./images/1-Demonstration.PNG" alt="效果演示"></div>
-
 # 2、使用方法
 
 > 📌 <font color="#FF6699">**扩展属性**</font>
