@@ -32,34 +32,13 @@
     }
 </style>
 
-<style>
-    #circle {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        position: relative;
-        margin: 0 auto;
-    }
-</style>
-
-<div id="circle"></div>
-
-<script>
-    var colors = ["red", "orange", "yellow", "green", "blue"];
-    var i = 0;
-    setInterval(function() {
-        document.getElementById('circle').style.backgroundColor = colors[i];
-        i = (i + 1) % colors.length;
-    }, 1000);
-</script>
-
 |控件名称|效果预览|
 |:---|:---:|
 |[IP 地址输入框控件](./IPAddrInputer/README.md)|![IPAddrInputer](./images/IPAddrInputer.PNG)|
 |[开关控件](./Switch/README.md)|![Switch](./images/Switch.png)|
 |[水印文本框控件](./WatermarkTextBox/README.md)|![WatermarkTextBox](./images/WatermarkTextBox.PNG)|
 |[选择器控件](./Selector/README.md)|![Selector](./images/Selector.PNG)|
-|[圆角按钮控件](./RoundButton/README.md)|<div align="center"><button class="button">圆角按钮</button></div>|
+|[圆角按钮控件](./RoundButton/README.md)|<div align="center"><button class="button">圆角按钮</button></div><br>![RoundButton](./images/RoundButton.gif)|
 |[指示灯控件](./IndicatorLight/README.md)|![IndicatorLight](./images/IndicatorLight.gif)|
 
 ## 3、使用方法
