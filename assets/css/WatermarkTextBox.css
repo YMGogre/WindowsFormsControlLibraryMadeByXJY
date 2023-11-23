@@ -1,0 +1,16 @@
+input[type="text"] {
+  width: 160px; 				/* 设置文本框的宽度 */
+  height: 30px; 				/* 设置文本框的高度 */
+  box-sizing: border-box;
+  border: 1px solid #000000; 			/* 设置边框的大小和颜色 */
+  font-size: 12pt; 				/* 设置输入文本的字体大小 */
+  font-family: 'Microsoft YaHei'; 		/* 设置输入文本的字体 */
+  background-color: white; 			/* 设置背景颜色 */
+  padding: 7px 5px 10px 3px; 			/* 调整 padding 的值以使文本垂直居中 */
+}
+
+/* 设置水印文本的字体和大小 */
+input[type="text"]::placeholder {
+  font-size: 9pt; 				/* 设置水印文本的字体大小 */
+  font-family: 'Songti SC', serif; 			/* 设置水印文本的字体 */
+}
