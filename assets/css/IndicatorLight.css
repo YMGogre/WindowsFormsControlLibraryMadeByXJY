@@ -1,8 +1,9 @@
 #circle {
+    display: inline-block;
     width: 42px;
     height: 42px;
     border-radius: 50%;
     position: relative;
     margin: 0 auto;
-    background-color: #C8C9CC;
+    vertical-align: middle;
 }
