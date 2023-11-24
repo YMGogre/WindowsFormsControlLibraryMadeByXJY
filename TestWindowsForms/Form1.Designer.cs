@@ -265,7 +265,7 @@
             this.roundButton1.Location = new System.Drawing.Point(183, 10);
             this.roundButton1.Margin = new System.Windows.Forms.Padding(10);
             this.roundButton1.Name = "roundButton1";
-            this.roundButton1.RgnRadius = 15;
+            this.roundButton1.RgnRadius = 8;
             this.roundButton1.RoundBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.roundButton1.RoundBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
             this.roundButton1.RoundBorderSize = 1;

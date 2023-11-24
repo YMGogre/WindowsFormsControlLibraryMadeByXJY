@@ -39,6 +39,7 @@ namespace WindowsFormsControlLibraryMadeByXJY
         /// <returns></returns>
         public static GraphicsPath GetRoundedRectPath(Rectangle rect, int radius, int margin = 1)
         {
+            radius *= 2;
             int SideLength = radius;    //定义圆弧方形容器边长为圆的半径
             Rectangle arcRect = new Rectangle(rect.Location, new Size(SideLength, SideLength));
             GraphicsPath path = new GraphicsPath();
@@ -71,6 +72,7 @@ namespace WindowsFormsControlLibraryMadeByXJY
         /// <returns></returns>
         public static GraphicsPath GetRoundedRectOutline(Rectangle rect, int radius)
         {
+            radius *= 2;
             int SideLength = radius;    //定义圆弧方形容器边长为圆的半径
             Rectangle arcRect = new Rectangle(rect.Location, new Size(SideLength, SideLength));
             GraphicsPath path = new GraphicsPath();

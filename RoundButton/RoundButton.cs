@@ -15,8 +15,8 @@ namespace WindowsFormsControlLibraryMadeByXJY
 {
     public partial class RoundButton : Button
     {
-        /// <summary>圆角半径，默认为 15 像素</summary>
-        private int rgnRadius = 15;
+        /// <summary>圆角半径，默认为 8 像素</summary>
+        private int rgnRadius = 8;
         /// <summary>圆角按钮轮廓颜色，默认为蓝色</summary>
         private Color roundBorderColor = Color.FromArgb(64, 158, 255);
         /// <summary>圆角按钮的边框的大小（以像素为单位），默认为 1</summary>
@@ -35,7 +35,7 @@ namespace WindowsFormsControlLibraryMadeByXJY
             InitializeComponent();
         }
 
-        /// <summary>获取或设置圆角半径，默认为 15 像素</summary>
+        /// <summary>获取或设置圆角半径，默认为 8 像素</summary>
         [Category("扩展属性"), Description("圆角半径")]
         public int RgnRadius { 
             get => rgnRadius;
