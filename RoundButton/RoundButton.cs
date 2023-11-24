@@ -129,6 +129,14 @@ namespace WindowsFormsControlLibraryMadeByXJY
                 g.FillPath(new SolidBrush(RoundButtonPressedColor), roundPath);
                 g.DrawString(Text, Font, new SolidBrush(Color.White), pe.ClipRectangle, GetStringFormat());
             }
+
+            // 处理控件无效时的绘制（绘制为灰色）
+            if (!Enabled)
+            {
+                g.DrawPath(new Pen(Color.FromArgb(188, 190, 194), RoundBorderSize), roundPath);
+                g.FillPath(new SolidBrush(Color.FromArgb(244, 244, 245)), roundPath);
+                g.DrawString(Text, Font, new SolidBrush(Color.FromArgb(188, 190, 194)), pe.ClipRectangle, GetStringFormat());
+            }
         }
 
         protected override void OnMouseEnter(EventArgs e)
