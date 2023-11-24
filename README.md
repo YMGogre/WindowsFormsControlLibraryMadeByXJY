@@ -13,10 +13,10 @@
 |:---|:---:|
 |[IP 地址输入框控件](./IPAddrInputer/README.md)|![IPAddrInputer](./images/IPAddrInputer.PNG)|
 |[开关控件](./Switch/README.md)|![Switch](./images/Switch.png)|
-|[水印文本框控件](./WatermarkTextBox/README.md)|<html><head><link rel="stylesheet" type="text/css" href="./assets/css/WatermarkTextBox.css"></head><body><input type="text" name="watermark" placeholder="请输入密码"></body></html>|
+|[水印文本框控件](./WatermarkTextBox/README.md)|<link rel="stylesheet" type="text/css" href="./assets/css/WatermarkTextBox.css"><input type="text" name="watermark" placeholder="请输入密码">|
 |[选择器控件](./Selector/README.md)|![Selector](./images/Selector.PNG)|
-|[圆角按钮控件](./RoundButton/README.md)|<html><head><link rel="stylesheet" type="text/css" href="./assets/css/RoundButton.css"></head><body><button class="button">圆角按钮</button></body></html>|
-|[指示灯控件](./IndicatorLight/README.md)|<html><head><link rel="stylesheet" type="text/css" href="./assets/css/IndicatorLight.css"></head><body><div id="circle"></div><script src="./assets/js/IndicatorLight.js"></script></body></html>|
+|[圆角按钮控件](./RoundButton/README.md)|<link rel="stylesheet" type="text/css" href="./assets/css/RoundButton.css"><button class="button">圆角按钮</button>|
+|[指示灯控件](./IndicatorLight/README.md)|<link rel="stylesheet" type="text/css" href="./assets/css/IndicatorLight.css"><div id="circle"></div><script src="./assets/js/IndicatorLight.js"></script>|
 
 ## 3、使用方法
 
