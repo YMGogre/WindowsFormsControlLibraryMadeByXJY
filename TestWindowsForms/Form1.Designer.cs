@@ -31,14 +31,14 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.watermarkTextBox1 = new WindowsFormsControlLibraryMadeByXJY.WatermarkTextBox();
+            this.ipAddrInputer1 = new WindowsFormsControlLibraryMadeByXJY.IPAddrInputer();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.indicatorLight1 = new WindowsFormsControlLibraryMadeByXJY.IndicatorLight();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.watermarkTextBox1 = new WindowsFormsControlLibraryMadeByXJY.WatermarkTextBox();
-            this.ipAddrInputer1 = new WindowsFormsControlLibraryMadeByXJY.IPAddrInputer();
-            this.indicatorLight1 = new WindowsFormsControlLibraryMadeByXJY.IndicatorLight();
             this.selector8 = new WindowsFormsControlLibraryMadeByXJY.Selector();
             this.selector7 = new WindowsFormsControlLibraryMadeByXJY.Selector();
             this.selector6 = new WindowsFormsControlLibraryMadeByXJY.Selector();
@@ -92,6 +92,30 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(786, 418);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
+            // watermarkTextBox1
+            // 
+            this.watermarkTextBox1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.watermarkTextBox1.Location = new System.Drawing.Point(10, 10);
+            this.watermarkTextBox1.Margin = new System.Windows.Forms.Padding(10);
+            this.watermarkTextBox1.Name = "watermarkTextBox1";
+            this.watermarkTextBox1.Size = new System.Drawing.Size(157, 26);
+            this.watermarkTextBox1.TabIndex = 1;
+            this.watermarkTextBox1.WaterMarkFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.watermarkTextBox1.WaterMarkLocation = new System.Drawing.Point(4, 5);
+            this.watermarkTextBox1.WaterText = "水印文本";
+            // 
+            // ipAddrInputer1
+            // 
+            this.ipAddrInputer1.BackColor = System.Drawing.SystemColors.Window;
+            this.ipAddrInputer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ipAddrInputer1.EnableLoopbackAddr = true;
+            this.ipAddrInputer1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ipAddrInputer1.Location = new System.Drawing.Point(187, 10);
+            this.ipAddrInputer1.Margin = new System.Windows.Forms.Padding(10);
+            this.ipAddrInputer1.Name = "ipAddrInputer1";
+            this.ipAddrInputer1.Size = new System.Drawing.Size(151, 26);
+            this.ipAddrInputer1.TabIndex = 2;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.flowLayoutPanel2);
@@ -111,6 +135,18 @@
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(786, 418);
             this.flowLayoutPanel2.TabIndex = 0;
+            // 
+            // indicatorLight1
+            // 
+            this.indicatorLight1.Clickable = false;
+            this.indicatorLight1.CurrColor = WindowsFormsControlLibraryMadeByXJY.IndicatorColors.Gray;
+            this.indicatorLight1.CurrState = WindowsFormsControlLibraryMadeByXJY.IndicatorState.Empty;
+            this.indicatorLight1.IndicatorText = "";
+            this.indicatorLight1.Location = new System.Drawing.Point(10, 10);
+            this.indicatorLight1.Margin = new System.Windows.Forms.Padding(10);
+            this.indicatorLight1.Name = "indicatorLight1";
+            this.indicatorLight1.Size = new System.Drawing.Size(50, 50);
+            this.indicatorLight1.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -152,42 +188,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(153, 65);
             this.panel1.TabIndex = 0;
-            // 
-            // watermarkTextBox1
-            // 
-            this.watermarkTextBox1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.watermarkTextBox1.Location = new System.Drawing.Point(10, 10);
-            this.watermarkTextBox1.Margin = new System.Windows.Forms.Padding(10);
-            this.watermarkTextBox1.Name = "watermarkTextBox1";
-            this.watermarkTextBox1.Size = new System.Drawing.Size(157, 26);
-            this.watermarkTextBox1.TabIndex = 1;
-            this.watermarkTextBox1.WaterMarkFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.watermarkTextBox1.WaterMarkLocation = new System.Drawing.Point(4, 5);
-            this.watermarkTextBox1.WaterText = "水印文本";
-            // 
-            // ipAddrInputer1
-            // 
-            this.ipAddrInputer1.BackColor = System.Drawing.SystemColors.Window;
-            this.ipAddrInputer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ipAddrInputer1.EnableLoopbackAddr = true;
-            this.ipAddrInputer1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ipAddrInputer1.Location = new System.Drawing.Point(187, 10);
-            this.ipAddrInputer1.Margin = new System.Windows.Forms.Padding(10);
-            this.ipAddrInputer1.Name = "ipAddrInputer1";
-            this.ipAddrInputer1.Size = new System.Drawing.Size(151, 26);
-            this.ipAddrInputer1.TabIndex = 2;
-            // 
-            // indicatorLight1
-            // 
-            this.indicatorLight1.Clickable = false;
-            this.indicatorLight1.CurrColor = WindowsFormsControlLibraryMadeByXJY.IndicatorColors.Gray;
-            this.indicatorLight1.CurrState = WindowsFormsControlLibraryMadeByXJY.IndicatorState.Empty;
-            this.indicatorLight1.IndicatorText = "";
-            this.indicatorLight1.Location = new System.Drawing.Point(10, 10);
-            this.indicatorLight1.Margin = new System.Windows.Forms.Padding(10);
-            this.indicatorLight1.Name = "indicatorLight1";
-            this.indicatorLight1.Size = new System.Drawing.Size(50, 50);
-            this.indicatorLight1.TabIndex = 0;
             // 
             // selector8
             // 
@@ -265,7 +265,7 @@
             this.roundButton1.Location = new System.Drawing.Point(183, 10);
             this.roundButton1.Margin = new System.Windows.Forms.Padding(10);
             this.roundButton1.Name = "roundButton1";
-            this.roundButton1.RgnRadius = 15;
+            this.roundButton1.RgnRadius = 8;
             this.roundButton1.RoundBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.roundButton1.RoundBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
             this.roundButton1.RoundBorderSize = 1;
