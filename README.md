@@ -16,7 +16,7 @@
 |[水印文本框控件](./WatermarkTextBox/README.md)|<link rel="stylesheet" type="text/css" href="./assets/css/WatermarkTextBox.css"><input type="text" name="watermark" placeholder="请输入密码">|
 |[选择器控件](./Selector/README.md)|![Selector](./images/Selector.PNG)|
 |[圆角按钮控件](./RoundButton/README.md)|<link rel="stylesheet" type="text/css" href="./assets/css/RoundButton.css"><button class="button">圆角按钮</button>|
-|[指示灯控件](./IndicatorLight/README.md)|<link rel="stylesheet" type="text/css" href="./assets/css/IndicatorLight.css"><div id="circle"></div><script src="./assets/js/IndicatorLight.js"></script>|
+|[指示灯控件](./IndicatorLight/README.md)|<link rel="stylesheet" type="text/css" href="./assets/css/IndicatorLight.css"><span id="circle"></span><script src="./assets/js/IndicatorLight.js"></script>|
 
 ## 3、使用方法
 
