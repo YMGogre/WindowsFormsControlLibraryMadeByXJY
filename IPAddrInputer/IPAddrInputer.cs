@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsControlLibraryMadeByXJY
 {
+    [Description("允许用户输入 IPV4 地址。")]
     public partial class IPAddrInputer : UserControl
     {
         /// <summary>用于保存所有字段对象的数组</summary>

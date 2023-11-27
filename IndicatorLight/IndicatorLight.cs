@@ -44,6 +44,7 @@ namespace WindowsFormsControlLibraryMadeByXJY
         Error = IndicatorColors.Red,
     };
 
+    [Description("提供基于颜色的状态表现形式。")]
     public partial class IndicatorLight : UserControl
     {
         /// <summary>指示灯的当前颜色，默认为灰色</summary>

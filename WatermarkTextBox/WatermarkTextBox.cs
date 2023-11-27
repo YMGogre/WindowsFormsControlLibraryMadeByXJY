@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsControlLibraryMadeByXJY
 {
+    [Description("允许用户输入文本，并在未产生任何有效输入时提供水印提示文字。")]
     public partial class WatermarkTextBox : TextBox
     {
         private readonly Label lblwaterText = new Label();

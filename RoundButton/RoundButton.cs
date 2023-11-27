@@ -13,6 +13,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsControlLibraryMadeByXJY
 {
+    [Description("当用户单击它时引发事件。")]
     public partial class RoundButton : Button
     {
         /// <summary>圆角半径，默认为 8 像素</summary>
@@ -116,18 +117,18 @@ namespace WindowsFormsControlLibraryMadeByXJY
             if (isMouseInside)
             {
                 g.FillPath(new SolidBrush(RoundBorderColor), roundPath);
-                g.DrawString(Text, Font, new SolidBrush(Color.White), pe.ClipRectangle, GetStringFormat());
+                g.DrawString(Text, Font, new SolidBrush(Color.White), pe.ClipRectangle, StringFormatProcessing.GetStringFormat(this.TextAlign));
             }
             else
             {
                 g.DrawPath(new Pen(RoundBorderColor, RoundBorderSize), roundPath);
                 g.FillPath(new SolidBrush(RoundBackColor), roundPath);
-                g.DrawString(Text, Font, new SolidBrush(this.ForeColor), pe.ClipRectangle, GetStringFormat());
+                g.DrawString(Text, Font, new SolidBrush(this.ForeColor), pe.ClipRectangle, StringFormatProcessing.GetStringFormat(this.TextAlign));
             }
             if (isMouseDown)
             {
                 g.FillPath(new SolidBrush(RoundButtonPressedColor), roundPath);
-                g.DrawString(Text, Font, new SolidBrush(Color.White), pe.ClipRectangle, GetStringFormat());
+                g.DrawString(Text, Font, new SolidBrush(Color.White), pe.ClipRectangle, StringFormatProcessing.GetStringFormat(this.TextAlign));
             }
 
             // 处理控件无效时的绘制（绘制为灰色）
@@ -135,7 +136,7 @@ namespace WindowsFormsControlLibraryMadeByXJY
             {
                 g.DrawPath(new Pen(Color.FromArgb(188, 190, 194), RoundBorderSize), roundPath);
                 g.FillPath(new SolidBrush(Color.FromArgb(244, 244, 245)), roundPath);
-                g.DrawString(Text, Font, new SolidBrush(Color.FromArgb(188, 190, 194)), pe.ClipRectangle, GetStringFormat());
+                g.DrawString(Text, Font, new SolidBrush(Color.FromArgb(188, 190, 194)), pe.ClipRectangle, StringFormatProcessing.GetStringFormat(this.TextAlign));
             }
         }
 
@@ -183,52 +184,6 @@ namespace WindowsFormsControlLibraryMadeByXJY
         {
             base.OnSizeChanged(pevent);
             this.Invalidate();
-        }
-
-        /// <summary>
-        /// 根据 <see cref="ButtonBase.TextAlign"/> 属性设置文本对齐方式
-        /// </summary>
-        /// <returns>文本布局信息 <see cref="StringFormat"/> 对象</returns>
-        private StringFormat GetStringFormat()
-        {
-            StringFormat sf = new StringFormat();
-            switch (this.TextAlign)
-            {
-                case ContentAlignment.TopLeft:
-                case ContentAlignment.MiddleLeft:
-                case ContentAlignment.BottomLeft:
-                    sf.Alignment = StringAlignment.Near;
-                    break;
-                case ContentAlignment.TopCenter:
-                case ContentAlignment.MiddleCenter:
-                case ContentAlignment.BottomCenter:
-                    sf.Alignment = StringAlignment.Center;
-                    break;
-                case ContentAlignment.TopRight:
-                case ContentAlignment.MiddleRight:
-                case ContentAlignment.BottomRight:
-                    sf.Alignment = StringAlignment.Far;
-                    break;
-            }
-            switch (this.TextAlign)
-            {
-                case ContentAlignment.TopLeft:
-                case ContentAlignment.TopCenter:
-                case ContentAlignment.TopRight:
-                    sf.LineAlignment = StringAlignment.Near;
-                    break;
-                case ContentAlignment.MiddleLeft:
-                case ContentAlignment.MiddleCenter:
-                case ContentAlignment.MiddleRight:
-                    sf.LineAlignment = StringAlignment.Center;
-                    break;
-                case ContentAlignment.BottomLeft:
-                case ContentAlignment.BottomCenter:
-                case ContentAlignment.BottomRight:
-                    sf.LineAlignment = StringAlignment.Far;
-                    break;
-            }
-            return sf;
         }
     }
 }

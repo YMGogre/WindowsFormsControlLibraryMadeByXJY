@@ -73,8 +73,9 @@
     <Compile Include="Selector\Selector.Designer.cs">
       <DependentUpon>Selector.cs</DependentUpon>
     </Compile>
+    <Compile Include="StringFormatProcessing.cs" />
     <Compile Include="Switch\Switch.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Switch\Switch.Designer.cs">
       <DependentUpon>Switch.cs</DependentUpon>
@@ -112,12 +113,6 @@
     <EmbeddedResource Include="WatermarkTextBox\WatermarkTextBox.resx">
       <DependentUpon>WatermarkTextBox.cs</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Switch\Resources\Switchoff.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Switch\Resources\Switchon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

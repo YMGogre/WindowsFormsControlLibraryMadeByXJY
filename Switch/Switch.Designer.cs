@@ -35,10 +35,11 @@ namespace WindowsFormsControlLibraryMadeByXJY
             // 
             // Switch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "Switch";
-            this.Click += new System.EventHandler(this.Switch_Click);
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Padding = new System.Windows.Forms.Padding(4);
+            this.Size = new System.Drawing.Size(60, 30);
+            this.UseVisualStyleBackColor = false;
             this.ResumeLayout(false);
 
         }
