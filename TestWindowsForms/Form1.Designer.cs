@@ -278,13 +278,14 @@
             // switch1
             // 
             this.switch1.BackColor = System.Drawing.Color.Transparent;
-            this.switch1.Checked = false;
             this.switch1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.switch1.Location = new System.Drawing.Point(313, 10);
             this.switch1.Margin = new System.Windows.Forms.Padding(10);
             this.switch1.Name = "switch1";
-            this.switch1.Size = new System.Drawing.Size(87, 27);
+            this.switch1.Padding = new System.Windows.Forms.Padding(4);
+            this.switch1.Size = new System.Drawing.Size(60, 30);
             this.switch1.TabIndex = 2;
+            this.switch1.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 

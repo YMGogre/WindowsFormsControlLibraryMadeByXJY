@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsControlLibraryMadeByXJY
 {
+    [Description("允许用户从一组选项中选择多个选项。")]
     public partial class Selector : UserControl
     {
         /// <summary>
