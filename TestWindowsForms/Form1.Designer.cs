@@ -279,12 +279,19 @@
             // 
             this.switch1.BackColor = System.Drawing.Color.Transparent;
             this.switch1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.switch1.DisabledSwitchOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(236)))), ((int)(((byte)(240)))));
+            this.switch1.DisabledSwitchOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(197)))), ((int)(((byte)(255)))));
+            this.switch1.FrameNum = 24;
+            this.switch1.FrameRate = 90;
             this.switch1.Location = new System.Drawing.Point(313, 10);
             this.switch1.Margin = new System.Windows.Forms.Padding(10);
             this.switch1.Name = "switch1";
             this.switch1.Padding = new System.Windows.Forms.Padding(4);
             this.switch1.Size = new System.Drawing.Size(60, 30);
+            this.switch1.SwitchOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.switch1.SwitchOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             this.switch1.TabIndex = 2;
+            this.switch1.Text = " ";
             this.switch1.UseVisualStyleBackColor = false;
             // 
             // Form1
