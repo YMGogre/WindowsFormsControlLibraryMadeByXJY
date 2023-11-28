@@ -18,27 +18,27 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><a href="./IPAddrInputer/README.md">IP 地址输入框控件</a></td>
+      <td style="text-align: left"><a href="IPAddrInputer/">IP 地址输入框控件</a></td>
       <td style="text-align: center"><link rel="stylesheet" type="text/css" href="./assets/css/IPAddrInputer.css"><div id="ipv4-input"><input type="text" maxlength="3"><label>.</label><input type="text" maxlength="3"><label>.</label><input type="text" maxlength="3"><label>.</label><input type="text" maxlength="3"></div><script src="./assets/js/IPAddrInputer.js"></script></td>
     </tr>
     <tr>
-      <td style="text-align: left"><a href="./Switch/README.md">开关控件</a></td>
+      <td style="text-align: left"><a href="Switch/">开关控件</a></td>
       <td style="text-align: center"><link rel="stylesheet" type="text/css" href="./assets/css/Switch.css"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></td>
     </tr>
     <tr>
-      <td style="text-align: left"><a href="./WatermarkTextBox/README.md">水印文本框控件</a></td>
+      <td style="text-align: left"><a href="WatermarkTextBox/">水印文本框控件</a></td>
       <td style="text-align: center"><link rel="stylesheet" type="text/css" href="./assets/css/WatermarkTextBox.css"><input type="text" name="watermark" placeholder="请输入密码"></td>
     </tr>
     <tr>
-      <td style="text-align: left"><a href="./Selector/README.md">选择器控件</a></td>
+      <td style="text-align: left"><a href="Selector/">选择器控件</a></td>
       <td style="text-align: center"><img src="./images/Selector.PNG" alt="Selector"></td>
     </tr>
     <tr>
-      <td style="text-align: left"><a href="./RoundButton/README.md">圆角按钮控件</a></td>
+      <td style="text-align: left"><a href="RoundButton/">圆角按钮控件</a></td>
       <td style="text-align: center"><link rel="stylesheet" type="text/css" href="./assets/css/RoundButton.css"><button class="button">圆角按钮</button></td>
     </tr>
     <tr>
-      <td style="text-align: left"><a href="./IndicatorLight/README.md">指示灯控件</a></td>
+      <td style="text-align: left"><a href="IndicatorLight/">指示灯控件</a></td>
       <td style="text-align: center"><link rel="stylesheet" type="text/css" href="./assets/css/IndicatorLight.css"><span id="circle" style="background-color: rgb(230, 162, 60);"></span><script src="./assets/js/IndicatorLight.js"></script></td>
     </tr>
   </tbody>
