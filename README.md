@@ -9,14 +9,40 @@
 
 ## 2、仓库组成
 
-|控件名称|效果预览|
-|:---|:---:|
-|[IP 地址输入框控件](./IPAddrInputer/README.md)|<link rel="stylesheet" type="text/css" href="./assets/css/IPAddrInputer.css"><div id="ipv4-input"><input type="text" maxlength="3" /><label>.</label><input type="text" maxlength="3" /><label>.</label><input type="text" maxlength="3" /><label>.</label><input type="text" maxlength="3" /></div>{: .block}<script src="./assets/js/IPAddrInputer.js"></script>|
-|[开关控件](./Switch/README.md)|<link rel="stylesheet" type="text/css" href="./assets/css/Switch.css"><label class="switch"><input type="checkbox"><span class="slider round"></span></label>|
-|[水印文本框控件](./WatermarkTextBox/README.md)|<link rel="stylesheet" type="text/css" href="./assets/css/WatermarkTextBox.css"><input type="text" name="watermark" placeholder="请输入密码">|
-|[选择器控件](./Selector/README.md)|![Selector](./images/Selector.PNG)|
-|[圆角按钮控件](./RoundButton/README.md)|<link rel="stylesheet" type="text/css" href="./assets/css/RoundButton.css"><button class="button">圆角按钮</button>|
-|[指示灯控件](./IndicatorLight/README.md)|<link rel="stylesheet" type="text/css" href="./assets/css/IndicatorLight.css"><span id="circle"></span><script src="./assets/js/IndicatorLight.js"></script>|
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">控件名称</th>
+      <th style="text-align: center">效果预览</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="./IPAddrInputer/README.md">IP 地址输入框控件</a></td>
+      <td style="text-align: center"><link rel="stylesheet" type="text/css" href="./assets/css/IPAddrInputer.css"><div id="ipv4-input"><input type="text" maxlength="3"><label>.</label><input type="text" maxlength="3"><label>.</label><input type="text" maxlength="3"><label>.</label><input type="text" maxlength="3"></div><script src="./assets/js/IPAddrInputer.js"></script></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="./Switch/README.md">开关控件</a></td>
+      <td style="text-align: center"><link rel="stylesheet" type="text/css" href="./assets/css/Switch.css"><label class="switch"><input type="checkbox"><span class="slider round"></span></label></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="./WatermarkTextBox/README.md">水印文本框控件</a></td>
+      <td style="text-align: center"><link rel="stylesheet" type="text/css" href="./assets/css/WatermarkTextBox.css"><input type="text" name="watermark" placeholder="请输入密码"></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="./Selector/README.md">选择器控件</a></td>
+      <td style="text-align: center"><img src="./images/Selector.PNG" alt="Selector"></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="./RoundButton/README.md">圆角按钮控件</a></td>
+      <td style="text-align: center"><link rel="stylesheet" type="text/css" href="./assets/css/RoundButton.css"><button class="button">圆角按钮</button></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="./IndicatorLight/README.md">指示灯控件</a></td>
+      <td style="text-align: center"><link rel="stylesheet" type="text/css" href="./assets/css/IndicatorLight.css"><span id="circle" style="background-color: rgb(230, 162, 60);"></span><script src="./assets/js/IndicatorLight.js"></script></td>
+    </tr>
+  </tbody>
+</table>
 
 ## 3、使用方法
 
