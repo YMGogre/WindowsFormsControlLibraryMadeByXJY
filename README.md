@@ -14,7 +14,7 @@
 |控件名称|效果预览|
 |:---|:---:|
 |[IP 地址输入框控件](./IPAddrInputer/README.md)|![IPAddrInputer](./images/IPAddrInputer.PNG)|
-|[开关控件](./Switch/README.md)|![Switch](./images/Switch.png)|
+|[开关控件](./Switch/README.md)|![Switch](./images/Switch.gif)|
 |[水印文本框控件](./WatermarkTextBox/README.md)|![WatermarkTextBox](./images/WatermarkTextBox.PNG)|
 |[选择器控件](./Selector/README.md)|![Selector](./images/Selector.PNG)|
 |[圆角按钮控件](./RoundButton/README.md)|![RoundButton](./images/RoundButton.gif)|
