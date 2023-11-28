@@ -10,6 +10,7 @@
 #ipv4-input input {
     border: none;
     width: 30px;
+    height: 30px;
     font-size: 9pt; 				/* 设置输入文本的字体大小 */
     font-family: 'Microsoft YaHei'; 		/* 设置输入文本的字体 */
     text-align: center;
