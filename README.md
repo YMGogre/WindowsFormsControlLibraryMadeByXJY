@@ -12,7 +12,7 @@
 |控件名称|效果预览|
 |:---|:---:|
 |[IP 地址输入框控件](./IPAddrInputer/README.md)|![IPAddrInputer](./images/IPAddrInputer.PNG)|
-|[开关控件](./Switch/README.md)|![Switch](./images/Switch.png)|
+|[开关控件](./Switch/README.md)|<link rel="stylesheet" type="text/css" href="./assets/css/Switch.css"><label class="switch"><input type="checkbox"><span class="slider round"></span></label>|
 |[水印文本框控件](./WatermarkTextBox/README.md)|<link rel="stylesheet" type="text/css" href="./assets/css/WatermarkTextBox.css"><input type="text" name="watermark" placeholder="请输入密码">|
 |[选择器控件](./Selector/README.md)|![Selector](./images/Selector.PNG)|
 |[圆角按钮控件](./RoundButton/README.md)|<link rel="stylesheet" type="text/css" href="./assets/css/RoundButton.css"><button class="button">圆角按钮</button>|

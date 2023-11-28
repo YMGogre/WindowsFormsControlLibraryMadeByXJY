@@ -271,7 +271,7 @@ namespace WindowsFormsControlLibraryMadeByXJY
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void OnFrameRateChanged(object sender, EventArgs e)
+        protected virtual void OnFrameRateChanged(object sender, EventArgs e)
         {
             // 改变动画帧率意味着需要重新设置定时器的时间间隔
             frameTimer.Interval = 1000 / FrameRate;
@@ -287,7 +287,7 @@ namespace WindowsFormsControlLibraryMadeByXJY
         /// </example>
         /// </summary>
         /// <param name="e"></param>
-        protected void OnAnimationConditionChanged(object sender, EventArgs e)
+        protected virtual void OnAnimationConditionChanged(object sender, EventArgs e)
         {
             switchOnX = ClientSize.Width - (ClientSize.Height - Padding.Vertical) - Padding.Right;
             switchOffX = Padding.Left;
