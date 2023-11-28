@@ -1,6 +1,6 @@
 # 1、效果演示
 
-<div align="center"><img src="./images/1-Demonstration.png" alt="效果演示"></div>
+<div align="center"><img src="./images/1-Demonstration.PNG" alt="效果演示"></div>
 
 # 2、使用方法
 
