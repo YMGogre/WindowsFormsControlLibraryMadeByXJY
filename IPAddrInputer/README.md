@@ -4,7 +4,8 @@
 
 # 2、仿 Windows 原生
 
-仿 Windows 原生 IPV4 地址输入框：<br><div align="center"><img src="./images/2-EmulatesWindowsNativeControl.gif" alt="仿 Windows 原生控件"></div>
+仿 Windows 原生 IPV4 地址输入框：
+<div align="center"><img src="./images/2-EmulatesWindowsNativeControl.gif" alt="仿 Windows 原生控件"></div>
 
 # 3、使用方法
 
@@ -12,20 +13,25 @@
 
 > 📌 <font color="#FF6699">**支持复制粘贴**</font>
 >
-> 与 Windows 原生 IPV4 地址输入框一致：在控件拥有焦点且光标未选定任何文本的情况下，可使用快捷键 `Ctrl+C` 与 `Ctrl+V` 复制和粘贴整段 IP 地址。<br><div align="center"><img src="./images/3-CopyAndPaste.gif" alt="复制与粘贴"></div>
+> 与 Windows 原生 IPV4 地址输入框一致：在控件拥有焦点且光标未选定任何文本的情况下，可使用快捷键 `Ctrl+C` 与 `Ctrl+V` 复制和粘贴整段 IP 地址。
+> 
+> <div align="center"><img src="./images/3-CopyAndPaste.gif" alt="复制与粘贴"></div>
 
 > 📌 <font color="#FF6699">**扩展属性**</font>
 >
 > `IPAddrInputer` 提供了一些扩展属性：
 > * **EnableLoopbackAddr**：获取或设置以允许以 `127` 开头的 IP 地址；
 > * **IPAddr**：获取 IP 地址（[IPAddress](https://learn.microsoft.com/zh-cn/dotnet/api/system.net.ipaddress?view=net-7.0) 对象）；
-> * **IPAddrStr**：获取 IP 地址字符串（若要设置该属性，请调用 `IPAddrInputer.SetIPAddrStr()` 方法）；<br><div align="center"><img src="./images/4-ExtensionProperties.png" alt="扩展属性"></div>
+> * **IPAddrStr**：获取 IP 地址字符串（若要设置该属性，请调用 `IPAddrInputer.SetIPAddrStr()` 方法）；
+> 
+> <div align="center"><img src="./images/4-ExtensionProperties.png" alt="扩展属性"></div>
 
 > 📌 <font color="#FF6699">**扩展事件**</font>
 >
 > `IPAddrInputer` 提供了一些扩展事件：
 > * **IPAddrStrChanged**：在 IPAddrStr 属性更改后发生；
 >   > 请注意，如果您是通过粘贴整段 IP 地址字符串到控件，则会触发四次 IPAddrStrChanged 事件。
+> 
 > <div align="center"><img src="./images/5-ExtensionEvents.PNG" alt="扩展事件"></div>
 
 # 4、实现思路

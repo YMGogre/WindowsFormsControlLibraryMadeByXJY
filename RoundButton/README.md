@@ -11,7 +11,9 @@
 > * **RoundBackColor**：获取或设置圆角按钮背景颜色，默认为浅蓝色；
 > * **RoundBorderColor**：获取或设置圆角按钮轮廓颜色，默认为蓝色；
 > * **RoundBorderSize**：获取或设置一个值，该值指定圆角按钮周围的边框的大小（以像素为单位），默认为 1；
-> * **RoundButtonPressedColor**：获取或设置圆角按钮按下时背景色，默认为深蓝色;<br><div align="center"><img src="./images/2-ExtensionProperties.png" alt="扩展属性"></div>
+> * **RoundButtonPressedColor**：获取或设置圆角按钮按下时背景色，默认为深蓝色;
+> 
+> <div align="center"><img src="./images/2-ExtensionProperties.png" alt="扩展属性"></div>
 
 > 📌 <font color="#FF6699">**注意**</font>
 >
