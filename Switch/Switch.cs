@@ -18,19 +18,37 @@ namespace WindowsFormsControlLibraryMadeByXJY
     [Description("当用户单击它时切换开关状态。")]
     public partial class Switch : CheckBox
     {
+        /// <summary>开关打开时的背景色</summary>
         private Color switchOnColor = Color.FromArgb(33, 150, 243);
+        /// <summary>当 <see cref="Control.Enabled"/> 属性为 <see langword="false"/> 并且开关打开时的背景色</summary>
+        private Color disabledSwitchOnColor = Color.FromArgb(140, 197, 255);
+        /// <summary>开关关闭时的背景色</summary>
         private Color switchOffColor = Color.FromArgb(204, 204, 204);
+        /// <summary>当 <see cref="Control.Enabled"/> 属性为 <see langword="false"/> 并且开关关闭时的背景色</summary>
+        private Color disabledSwitchOffColor = Color.FromArgb(234, 236, 240);
+        /// <summary>开关打开时开关滑块的 X 坐标值</summary>
         private int switchOnX;
+        /// <summary>开关关闭时开关滑块的 X 坐标值</summary>
         private int switchOffX;
+        /// <summary>过渡颜色，用于过渡动画</summary>
         private Color transitionColor;
+        /// <summary>过渡动画两帧之间 <see cref="Color.R"/> 通道值变化步长</summary>
         private double stepSizeR;
+        /// <summary>过渡动画两帧之间 <see cref="Color.G"/> 通道值变化步长</summary>
         private double stepSizeG;
+        /// <summary>过渡动画两帧之间 <see cref="Color.B"/> 通道值变化步长</summary>
         private double stepSizeB;
+        /// <summary>过渡 X 坐标值，用于过渡动画</summary>
         private int transitionX;
+        /// <summary>过渡动画两帧之间 <see cref="Rectangle.X"/> 坐标值变化步长</summary>
         private double stepSizeX;
+        /// <summary>过渡动画帧率</summary>
         private int frameRate = 90;
+        /// <summary>过渡动画帧数</summary>
         private int frameNum = 24;
+        /// <summary>过渡动画帧计数器</summary>
         private int counter = 0;
+        /// <summary>帧间隔定时器</summary>
         private Timer frameTimer;
 
         public Switch()
@@ -49,7 +67,6 @@ namespace WindowsFormsControlLibraryMadeByXJY
             this.SwitchOnColorChanged += new EventHandler(this.OnAnimationConditionChanged);
             this.SwitchOffColorChanged += new EventHandler(this.OnAnimationConditionChanged);
             this.FrameNumChanged += new EventHandler(this.OnAnimationConditionChanged);
-            this.CheckedChanged += new EventHandler(this.OnAnimationConditionChanged);
 
             // 初始化还未得到初始化的成员变量
             switchOnX = ClientSize.Width - (ClientSize.Height - Padding.Vertical) - Padding.Right;
@@ -86,6 +103,14 @@ namespace WindowsFormsControlLibraryMadeByXJY
             }
         }
 
+        /// <summary>获取或设置 <see cref="Control.Enabled"/> 属性为 <see langword="false"/> 并且开关打开时的背景色</summary>
+        [Category("扩展属性"), Description("Enable 属性为 false 并且开关打开时背景色")]
+        public Color DisabledSwitchOnColor
+        {
+            get => disabledSwitchOnColor;
+            set => disabledSwitchOnColor = value;
+        }
+
         /// <summary>在 <see cref="SwitchOffColor"/> 属性更改后发生</summary>
         [Category("属性已更改"), Description("在控件上更改 SwitchOffColor 属性的值时引发的事件。")]
         public event EventHandler SwitchOffColorChanged;
@@ -106,19 +131,27 @@ namespace WindowsFormsControlLibraryMadeByXJY
             }
         }
 
+        /// <summary>获取或设置 <see cref="Control.Enabled"/> 属性为 <see langword="false"/> 并且开关关闭时的背景色</summary>
+        [Category("扩展属性"), Description("Enable 属性为 false 并且开关关闭时背景色")]
+        public Color DisabledSwitchOffColor
+        {
+            get => disabledSwitchOffColor;
+            set => disabledSwitchOffColor = value;
+        }
+
         /// <summary>在 <see cref="FrameRate"/> 属性更改后发生</summary>
         [Category("属性已更改"), Description("在控件上更改 FrameRate 属性的值时引发的事件。")]
         public event EventHandler FrameRateChanged;
 
         /// <summary>获取或设置过渡动画的帧率</summary>
-        [Category("扩展属性"), Description("过渡动画帧率")]
+        [Category("扩展属性"), Description("过渡动画帧率，该属性与动画平滑度强相关")]
         public int FrameRate {
             get => frameRate;
             set
             {
                 if (frameRate != value)
                 {
-                    frameRate = value;
+                    frameRate = Math.Max(1, Math.Min(value, 240));
                     FrameRateChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
@@ -129,13 +162,13 @@ namespace WindowsFormsControlLibraryMadeByXJY
         public event EventHandler FrameNumChanged;
 
         /// <summary>获取或设置完成过渡动画需要的帧数量</summary>
-        [Category("扩展属性"), Description("过渡动画帧数量")]
+        [Category("扩展属性"), Description("过渡动画帧数量，该属性与动画时间强相关")]
         public int FrameNum {
             get => frameNum;
             set{
                 if (frameNum != value)
                 {
-                    frameNum = value;
+                    frameNum = Math.Max(1, value);
                     FrameNumChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
@@ -156,13 +189,14 @@ namespace WindowsFormsControlLibraryMadeByXJY
             g.InterpolationMode = InterpolationMode.HighQualityBicubic;
             g.CompositingQuality = CompositingQuality.HighQuality;
 
-            // 绘制底色、及文本
+            // 绘制底色、开关滑块及文本
             var roundPath = RoundControl.GetRoundedRectPath(this.ClientRectangle, this.Height / 2, 1);
 
-            using (var onBrush = new SolidBrush(Enabled ? transitionColor : Color.FromArgb(140, 197, 255)))
-            using (var offBrush = new SolidBrush(Enabled ? transitionColor : Color.FromArgb(234, 236, 240)))
+            using (var onBrush = new SolidBrush(Enabled ? transitionColor : DisabledSwitchOnColor))
+            using (var offBrush = new SolidBrush(Enabled ? transitionColor : DisabledSwitchOffColor))
             using (var thumbBrush = new SolidBrush(Color.White))
             {
+                // 绘制底色
                 g.FillPath(Checked ? onBrush : offBrush, roundPath);
 
                 var rect = new Rectangle(
@@ -171,6 +205,7 @@ namespace WindowsFormsControlLibraryMadeByXJY
                     ClientSize.Height - Padding.Vertical,
                     ClientSize.Height - Padding.Vertical);
 
+                // 绘制开关滑块
                 g.FillEllipse(thumbBrush, rect);
 
                 if (Text != string.Empty)
@@ -180,6 +215,8 @@ namespace WindowsFormsControlLibraryMadeByXJY
                         Padding.Top,
                         ClientSize.Width - Padding.Horizontal,
                         ClientSize.Height - Padding.Vertical);
+
+                    // 绘制文本
                     g.DrawString(Text, Font, new SolidBrush(this.ForeColor), textRect, StringFormatProcessing.GetStringFormat(this.TextAlign));
                 }
             }
@@ -244,7 +281,6 @@ namespace WindowsFormsControlLibraryMadeByXJY
         /// 2. 控件的 <see cref="Control.Padding"/> 发生了变化；<br/>
         /// 3. <see cref="SwitchOffColor"/> 或者 <see cref="SwitchOnColor"/> 属性发生了变化；<br/>
         /// 4. <see cref="FrameNum"/> 属性发生了变化；<br/>
-        /// 5. <see cref="CheckBox.Checked"/> 属性发生了变化；<br/>
         /// </example>
         /// </summary>
         /// <param name="e"></param>

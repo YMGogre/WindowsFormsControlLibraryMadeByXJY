@@ -39,6 +39,8 @@ namespace WindowsFormsControlLibraryMadeByXJY
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Padding = new System.Windows.Forms.Padding(4);
             this.Size = new System.Drawing.Size(60, 30);
+            this.AutoSize = false;
+            this.Text = " ";
             this.UseVisualStyleBackColor = false;
             this.ResumeLayout(false);
 
