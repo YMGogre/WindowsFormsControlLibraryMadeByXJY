@@ -1,0 +1,21 @@
+#ipv4-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    padding: 0px;
+    height: 30px;
+    max-width: 180px; /* 你可以根据需要调整这个值 */
+}
+
+#ipv4-input input {
+    border: none;
+    width: 30px;
+    font-size: 9pt; 				/* 设置输入文本的字体大小 */
+    font-family: 'Microsoft YaHei'; 		/* 设置输入文本的字体 */
+    text-align: center;
+    outline: none; /* 去除输入框获得焦点时的边框 */
+}
+
+#ipv4-input label {
+    margin: 0 5px;
+}
