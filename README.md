@@ -11,7 +11,7 @@
 
 |控件名称|效果预览|
 |:---|:---:|
-|[IP 地址输入框控件](./IPAddrInputer/README.md)|<link rel="stylesheet" type="text/css" href="./assets/css/IPAddrInputer.css"><div id="ipv4-input"><input type="text" maxlength="3" /><label>.</label><input type="text" maxlength="3" /><label>.</label><input type="text" maxlength="3" /><label>.</label><input type="text" maxlength="3" /></div><script src="./assets/js/IPAddrInputer.js"></script>|
+|[IP 地址输入框控件](./IPAddrInputer/README.md)|<link rel="stylesheet" type="text/css" href="./assets/css/IPAddrInputer.css"><div id="ipv4-input"><input type="text" maxlength="3" /><label>.</label><input type="text" maxlength="3" /><label>.</label><input type="text" maxlength="3" /><label>.</label><input type="text" maxlength="3" /></div>{: .block}<script src="./assets/js/IPAddrInputer.js"></script>|
 |[开关控件](./Switch/README.md)|<link rel="stylesheet" type="text/css" href="./assets/css/Switch.css"><label class="switch"><input type="checkbox"><span class="slider round"></span></label>|
 |[水印文本框控件](./WatermarkTextBox/README.md)|<link rel="stylesheet" type="text/css" href="./assets/css/WatermarkTextBox.css"><input type="text" name="watermark" placeholder="请输入密码">|
 |[选择器控件](./Selector/README.md)|![Selector](./images/Selector.PNG)|
