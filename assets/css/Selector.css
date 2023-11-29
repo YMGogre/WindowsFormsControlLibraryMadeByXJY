@@ -17,5 +17,5 @@
     display: flex;
     border: 1px solid black;
     flex-wrap: wrap;
-    width: 120px; /* 4 * (20px width + 2 * 5px margin) */
+    width: 122px; /* 4 * (20px width + 2 * 5px margin) */
 }
