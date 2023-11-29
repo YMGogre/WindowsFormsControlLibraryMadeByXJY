@@ -1,0 +1,21 @@
+.circle {
+    width: 20px;
+    height: 20px;
+    background-color: #C8C9CC;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 5px;
+}
+.selected {
+    background-color: #409EFF;
+    color: white;
+}
+#container {
+    display: flex;
+    border: 1px solid black;
+    flex-wrap: wrap;
+    width: 120px; /* 4 * (20px width + 2 * 5px margin) */
+}

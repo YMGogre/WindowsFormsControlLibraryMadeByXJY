@@ -31,7 +31,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><a href="Selector/">选择器控件</a></td>
-      <td style="text-align: center"><img src="./images/Selector.PNG" alt="Selector"></td>
+      <td style="display: flex; justify-content: center;"><link rel="stylesheet" type="text/css" href="./assets/css/Selector.css"><div id="container"></div><script src="./assets/js/Selector.js"></script></td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="RoundButton/">圆角按钮控件</a></td>
