@@ -46,6 +46,11 @@
 
 ## 3、使用方法
 
-如果您想要了解如何创建 .NET Framework 下 WinForms 自定义控件库或者想了解如何在其他项目中引用本仓库，请参考：
+🏷️ 请参考仓库内[使用方法教程](https://github.com/YMGogre/WindowsFormsControlLibraryMadeByXJY?tab=readme-ov-file#3%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95)。
+
+---
+
+> 如果您想要额外了解如何创建 .NET Framework 下 WinForms 自定义控件库，请参考：
+>
 > [在Visual Studio中创建自定义Winform控件库并在其他解决方案中引用](https://blog.csdn.net/YMGogre/article/details/126508042 "【入门级图文教程】在Visual Studio中创建自定义Winform控件库并在其他解决方案中引用 - CSDN 博客")
 > <div align="center"><img src="./images/csdn.png" alt="csdn" width="128"></div>
