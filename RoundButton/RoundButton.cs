@@ -42,7 +42,7 @@ namespace WindowsFormsControlLibraryMadeByXJY
             get => rgnRadius;
             set
             {
-                rgnRadius = value;
+                rgnRadius = Math.Min(Math.Max(1, value), Math.Min(this.Width / 2, this.Height / 2));
                 this.Invalidate();
             } 
         }
@@ -183,7 +183,7 @@ namespace WindowsFormsControlLibraryMadeByXJY
         protected override void OnSizeChanged(EventArgs pevent)
         {
             base.OnSizeChanged(pevent);
-            this.Invalidate();
+            RgnRadius = RgnRadius;
         }
     }
 }
